@@ -257,23 +257,20 @@ while run:
                             else:
                                 if piece_selected == "t2r" or piece_selected == "t2b":
                                     new_piece = ""
-                                    if red_turn == True:
-                                        while new_piece != "a1r" and new_piece != "r1r" and new_piece != "t1r" and new_piece != "d1r":
-                                            new_piece = input("Select a new piece: ")
-                                            if new_piece != "a1r" and new_piece != "r1r" and new_piece != "t1r" and new_piece != "d1r":
-                                                print("Invalid piece")
+                                    while new_piece != "t" and new_piece != "d" and new_piece != "a" and new_piece != "r":
+                                        new_piece = input("Select a new piece: ")
+                                        if new_piece != "t" and new_piece != "d" and new_piece != "a" and new_piece != "r":
+                                            print("Invalid piece")
+                                        else:
+                                            new_piece += "1"
+                                            if red_turn == True:
+                                                new_piece += "r"
                                             else:
-                                                board[start_row][start_col] = new_piece
-                                                board[mouse_row][mouse_col] = piece_selected
-                                                moves += 1
-                                    else:
-                                        while new_piece != "a1b" and new_piece != "r1b" and new_piece != "t1b" and new_piece != "d1b":
-                                            new_piece = input("Select a new piece: ")
-                                            if new_piece != "a1b" and new_piece != "r1b" and new_piece != "t1b" and new_piece != "d1b":
-                                                print("Invalid piece")
-                                            else:
-                                                board[start_row][start_col] = new_piece
-                                                board[mouse_row][mouse_col] = piece_selected
+                                                new_piece += "b"
+                                            board[start_row][start_col] = new_piece
+                                            board[mouse_row][mouse_col] = piece_selected
+                                            moves += 1
+                                            break
                                 elif piece_selected == "a1r":
                                     board[start_row][start_col] = "---"
                                     board[mouse_row][mouse_col] = "a2r"
